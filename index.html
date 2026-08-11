@@ -142,43 +142,6 @@
   .note{background:#fff8dd;border-left:4px solid var(--agf-accent);padding:14px 16px;border-radius:10px;
     font-size:13.5px;color:#6b5900;margin-top:18px}
 
-  /* LINEUPS / PITCH */
-  .lineup-head{display:flex;justify-content:space-between;align-items:center;background:#fff;
-    border-radius:14px;padding:14px 18px;margin-bottom:14px;box-shadow:0 4px 14px rgba(12,26,43,.06)}
-  .lineup-head .lt{display:flex;align-items:center;gap:10px}
-  .lineup-head .crest2{width:40px;height:40px;border-radius:10px;background:var(--agf-blue);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}
-  .lineup-head .crest2.sbh{background:#0a7d4f}
-  .lineup-head b{font-size:16px;color:var(--agf-blue);display:block}
-  .lineup-head small{font-size:12px;color:var(--muted)}
-  .lineup-head .form{font-size:20px;font-weight:900;color:var(--agf-accent);
-    background:var(--agf-blue);padding:4px 12px;border-radius:10px}
-  .lineup-head .form.sbh{background:#0a7d4f}
-
-  .pitch{position:relative;background:#2e9c53;
-    background-image:repeating-linear-gradient(90deg,#2e9c53 0 40px,#279049 40px 80px);
-    border-radius:16px;padding:22px 10px;margin-bottom:26px;overflow:hidden;
-    box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);aspect-ratio:3/4;max-height:560px}
-  .pitch::before{content:"";position:absolute;left:50%;top:50%;width:120px;height:120px;
-    border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%)}
-  .pitch::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:2px;
-    background:rgba(255,255,255,.35)}
-  .pline{display:flex;justify-content:space-around;align-items:center;position:relative;z-index:2}
-  .player{display:flex;flex-direction:column;align-items:center;gap:3px;width:64px;text-align:center}
-  .player .shirt{width:36px;height:36px;border-radius:50%;background:#fff;color:var(--agf-blue);
-    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
-    box-shadow:0 2px 6px rgba(0,0,0,.3);border:2px solid var(--agf-blue)}
-  .player.sbh .shirt{background:#0a7d4f;color:#fff;border-color:#fff}
-  .player .pname{font-size:11px;color:#fff;font-weight:600;line-height:1.15;text-shadow:0 1px 2px rgba(0,0,0,.5)}
-  .player.out .shirt{background:#e5484d;color:#fff;border-color:#fff;opacity:.9}
-  .player.out .pname{text-decoration:line-through;opacity:.85}
-  .out-tag{font-size:9px;background:#e5484d;color:#fff;padding:1px 5px;border-radius:6px;font-weight:800}
-  .bench{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:26px;box-shadow:0 3px 10px rgba(12,26,43,.05)}
-  .bench h4{font-size:13px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-  .bench .chips{display:flex;flex-wrap:wrap;gap:6px}
-  .chip{background:#f0f4f8;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:600;color:var(--ink)}
-  .chip b{color:var(--agf-blue);margin-right:3px}
-
   footer{background:var(--agf-blue-dark);color:#cdd9e6;font-size:12px;padding:20px 0;text-align:center}
   footer a{color:var(--agf-accent);text-decoration:none}
 </style>
@@ -215,7 +178,6 @@
 <nav class="tabs">
   <div class="wrap">
     <button class="active" data-tab="journey">🧭 Rejsen</button>
-    <button data-tab="lineups">👕 Opstillinger</button>
     <button data-tab="fixtures">📅 Kampe</button>
     <button data-tab="format">📖 Sådan virker det</button>
     <button data-tab="facts">📊 Fakta</button>
@@ -229,34 +191,6 @@
     <p class="lead">Som dansk mester starter AGF i 2. kvalifikationsrunde og skal gennem fire opgør for at nå Champions League-ligafasen.</p>
     <div class="timeline" id="timeline"></div>
     <div class="note">💡 <b>Sikkerhedsnet:</b> Taber AGF i CL-kvalifikationen, fortsætter eventyret i Europa League eller Conference League – så europæisk gruppespil er stort set i hus.</div>
-  </div>
-</section>
-
-<!-- LINEUPS -->
-<section class="panel" id="lineups">
-  <div class="wrap">
-    <h2 class="sec">Forventede startopstillinger</h2>
-    <p class="lead">Til returopgøret i Baku, tirsdag 11. august kl. 18:00. Opstillingerne er forudsagte og bekræftes typisk ca. 1 time før kampstart.</p>
-
-    <!-- AGF -->
-    <div class="lineup-head">
-      <div class="lt"><div class="crest2">AGF</div>
-        <div><b>AGF</b><small>Cheftræner: Jakob Poulsen</small></div></div>
-      <div class="form">3-4-2-1</div>
-    </div>
-    <div class="pitch" id="pitchAGF"></div>
-    <div class="bench" id="benchAGF"></div>
-
-    <!-- SABAH -->
-    <div class="lineup-head">
-      <div class="lt"><div class="crest2 sbh">SBH</div>
-        <div><b>Sabah FK</b><small>Cheftræner: Valdas Dambrauskas</small></div></div>
-      <div class="form sbh">4-2-3-1</div>
-    </div>
-    <div class="pitch" id="pitchSBH"></div>
-    <div class="bench" id="benchSBH"></div>
-
-    <div class="note">🩹 <b>Skader hos AGF:</b> Frederik Tingager er skadet og rejste ikke med til Baku – forventes erstattet af Rasmus Carstensen eller Christian Storch. Også ude: Jacob Andersen, Tobias Mølgaard, Markus Solbakken, Nicolai Poulsen og Kevin Yakob.</div>
   </div>
 </section>
 
@@ -307,7 +241,7 @@
 
 <footer>
   <div class="wrap">
-    Uofficiel fan-app · Data pr. 11. august 2026 · Kilder: AGF.dk, UEFA.com, Superliga.dk, Tipsbladet, FotMob, bold.dk<br>
+    Uofficiel fan-app · Data pr. 11. august 2026 · Kilder: AGF.dk, UEFA.com, Superliga.dk, Tipsbladet<br>
     Lavet med ❤️ til alle <a href="#">De Hviie</a>-fans
   </div>
 </footer>
@@ -356,52 +290,6 @@ const fixtures = [
   {d:"08",m:"SEP",teams:"Ligafasen matchday 1",comp:"Champions League (hvis videre)",res:"TBD",r:"up"}
 ];
 
-/* ---------- LINEUPS ---------- */
-const agf = {
-  cls:"",
-  rows:[
-    [{n:21,name:"Hedenstad"}],
-    [{n:19,name:"Kahl"},{n:5,name:"Tingager",out:true},{n:25,name:"Rösler"}],
-    [{n:39,name:"Emmery"},{n:4,name:"Knudsen"},{n:16,name:"Jønsson"},{n:23,name:"Anderson"}],
-    [{n:10,name:"Arnstad"},{n:31,name:"Bech"}],
-    [{n:28,name:"Bogere"}]
-  ],
-  bench:[[1,"Hansen"],[29,"Carstensen"],[45,"Storch"],[44,"Camara"],[46,"Sengooba"],
-         [11,"Links"],[7,"Solbakken"],[13,"Serra"],[8,"Jørgensen"],[27,"Tchamche"],[20,"Kristjánsson"]]
-};
-const sbh = {
-  cls:"sbh",
-  rows:[
-    [{n:92,name:"Pokatilov"}],
-    [{n:80,name:"Zedadka"},{n:5,name:"Dashdamirov"},{n:3,name:"Solvet"},{n:27,name:"Puchacz"}],
-    [{n:7,name:"Rakhmonaliev"},{n:13,name:"Lepinjica"}],
-    [{n:11,name:"Parris"},{n:10,name:"Isayev"},{n:21,name:"Simić"}],
-    [{n:20,name:"Mickels"}]
-  ],
-  bench:[[1,"Ramazanov"],[94,"Mirzammadov"],[4,"McCarthy"],[33,"Almeida"],[17,"Mütallimov"],
-         [6,"Khaybulayev"],[8,"Nwachukwu"],[99,"Mbina"],[34,"Severina"],[23,"Lachaab"]]
-};
-function renderPitch(id,team){
-  const p=document.getElementById(id);
-  team.rows.forEach(row=>{
-    const line=document.createElement('div');line.className='pline';
-    row.forEach(pl=>{
-      line.insertAdjacentHTML('beforeend',`
-        <div class="player ${team.cls} ${pl.out?'out':''}">
-          <div class="shirt">${pl.n}</div>
-          <div class="pname">${pl.name}</div>
-          ${pl.out?'<span class="out-tag">SKADET</span>':''}
-        </div>`);
-    });
-    p.appendChild(line);
-  });
-}
-function renderBench(id,team,title){
-  const b=document.getElementById(id);
-  const chips=team.bench.map(([n,name])=>`<span class="chip"><b>${n}</b>${name}</span>`).join('');
-  b.innerHTML=`<h4>Bænk · ${title}</h4><div class="chips">${chips}</div>`;
-}
-
 /* ---------- RENDER TIMELINE ---------- */
 const tl = document.getElementById('timeline');
 rounds.forEach((rd,i)=>{
@@ -433,10 +321,6 @@ fixtures.forEach(f=>{
       <div class="fx-res ${f.r}">${f.res}</div>
     </div>`);
 });
-
-/* ---------- RENDER LINEUPS ---------- */
-renderPitch('pitchAGF',agf); renderBench('benchAGF',agf,'AGF');
-renderPitch('pitchSBH',sbh); renderBench('benchSBH',sbh,'Sabah FK');
 
 /* ---------- TABS ---------- */
 document.querySelectorAll('nav.tabs button').forEach(btn=>{
